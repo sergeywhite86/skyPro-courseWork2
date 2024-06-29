@@ -7,10 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 @Repository
 @RequiredArgsConstructor
@@ -21,38 +18,37 @@ public class JavaQuestionRepository implements QuestionRepository {
     @Override
     public Question add(String question, String answer) {
         Question inputQuestion = new Question(question, answer);
-        inMemoryDb.JAVA_QUESTIONS.add(inputQuestion);
+        inMemoryDb.getJavaQuestions().add(inputQuestion);
         return inputQuestion;
     }
 
     @Override
     public Question add(Question question) {
-        inMemoryDb.JAVA_QUESTIONS.add(question);
+        inMemoryDb.getJavaQuestions().add(question);
         return question;
     }
 
     @Override
     public Question remove(Question question) {
-        inMemoryDb.JAVA_QUESTIONS.remove(question);
+        inMemoryDb.getJavaQuestions().remove(question);
         return question;
     }
 
     @Override
     public Question remove(String question, String answer) {
         Question inputQuestion = new Question(question, answer);
-        inMemoryDb.JAVA_QUESTIONS.remove(inputQuestion);
+        inMemoryDb.getJavaQuestions().remove(inputQuestion);
         return inputQuestion;
     }
 
     @Override
-    public Collection<Question> findAll() {
-        return inMemoryDb.JAVA_QUESTIONS;
+    public List<Question> findAll() {
+        return inMemoryDb.getJavaQuestions();
     }
 
     @Override
     public Question getRandomQuestion() {
-        List<Question> questionList = new ArrayList<>(findAll());
-        Collections.shuffle(questionList);
-        return questionList.get(0);
+        Random random = new Random();
+        return findAll().get(random.nextInt(findAll().size()));
     }
 }

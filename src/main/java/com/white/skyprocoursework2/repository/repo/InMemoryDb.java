@@ -2,39 +2,42 @@ package com.white.skyprocoursework2.repository.repo;
 
 import com.white.skyprocoursework2.entity.Question;
 import jakarta.annotation.PostConstruct;
+import lombok.Getter;
 import org.springframework.stereotype.Repository;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
+
+@Getter
 @Repository
 public class InMemoryDb {
 
-    public final Set<Question> JAVA_QUESTIONS = new HashSet<>();
-    public final Set<Question> MATH_QUESTIONS = new HashSet<>();
+    private final List<Question> javaQuestions = new ArrayList<>();
+    private final List<Question> mathQuestions = new ArrayList<>();
 
     @PostConstruct
     public void init() {
-        JAVA_QUESTIONS.add(new Question("От какого класса наследуются все классы java?", "Object"));
-        JAVA_QUESTIONS.add(new Question("Метод,который является входной точкой в приложение?", "main"));
-        JAVA_QUESTIONS.add(new Question("Самый популярный класс java?", "String"));
-        JAVA_QUESTIONS.add(new Question("Модификатор доступа с минимальной областью видимости?", "private"));
-        JAVA_QUESTIONS.add(new Question("Модификатор доступа с максимальной областью видимости?", "public"));
-        JAVA_QUESTIONS.add(new Question("Какое ключевой слово используется для вызова конструктора?", "new"));
-        JAVA_QUESTIONS.add(new Question("Какое ключевое слово используется для реализации интерфейса?", "implement"));
-        JAVA_QUESTIONS.add(new Question("Какое ключевой слово используется для наследования класса?", "extend"));
-        JAVA_QUESTIONS.add(new Question("Поддерживает ли java множественное наследование?", "нет"));
-        JAVA_QUESTIONS.add(new Question("Как называется память в которой хранятся объекты?", "heap"));
+        javaQuestions.add(new Question("От какого класса наследуются все классы java?", "Object"));
+        javaQuestions.add(new Question("Метод,который является входной точкой в приложение?", "main"));
+        javaQuestions.add(new Question("Самый популярный класс java?", "String"));
+        javaQuestions.add(new Question("Модификатор доступа с минимальной областью видимости?", "private"));
+        javaQuestions.add(new Question("Модификатор доступа с максимальной областью видимости?", "public"));
+        javaQuestions.add(new Question("Какое ключевой слово используется для вызова конструктора?", "new"));
+        javaQuestions.add(new Question("Какое ключевое слово используется для реализации интерфейса?", "implement"));
+        javaQuestions.add(new Question("Какое ключевой слово используется для наследования класса?", "extend"));
+        javaQuestions.add(new Question("Поддерживает ли java множественное наследование?", "нет"));
+        javaQuestions.add(new Question("Как называется память в которой хранятся объекты?", "heap"));
 
-        MATH_QUESTIONS.add(new Question("10+10", "20"));
-        MATH_QUESTIONS.add(new Question("25+10", "35"));
-        MATH_QUESTIONS.add(new Question("1+10", "11"));
-        MATH_QUESTIONS.add(new Question("99+1", "100"));
-        MATH_QUESTIONS.add(new Question("100+10", "110"));
-        MATH_QUESTIONS.add(new Question("11+11", "22"));
-        MATH_QUESTIONS.add(new Question("88+10", "98"));
-        MATH_QUESTIONS.add(new Question("77+1", "78"));
-        MATH_QUESTIONS.add(new Question("13+101", "114"));
-        MATH_QUESTIONS.add(new Question("8+15", "23"));
+        mathQuestions.add(new Question("10+10", "20"));
+        mathQuestions.add(new Question("25+10", "35"));
+        mathQuestions.add(new Question("1+10", "11"));
+        mathQuestions.add(new Question("99+1", "100"));
+        mathQuestions.add(new Question("100+10", "110"));
+        mathQuestions.add(new Question("11+11", "22"));
+        mathQuestions.add(new Question("88+10", "98"));
+        mathQuestions.add(new Question("77+1", "78"));
+        mathQuestions.add(new Question("13+101", "114"));
+        mathQuestions.add(new Question("8+15", "23"));
     }
 }
