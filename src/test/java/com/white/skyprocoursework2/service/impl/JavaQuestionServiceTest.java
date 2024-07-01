@@ -53,9 +53,9 @@ class JavaQuestionServiceTest {
 
     @Test
     void getAll() {
-        when(repository.findAll()).thenReturn(JAVA_QUESTIONS_LIST);
+        when(repository.findAll()).thenReturn(JAVA_QUESTIONS);
         Collection<Question> actual = out.getAll();
-        assertEquals(JAVA_QUESTIONS_LIST, actual);
+        assertEquals(JAVA_QUESTIONS, actual);
     }
 
     @Test

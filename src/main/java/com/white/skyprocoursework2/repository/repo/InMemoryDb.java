@@ -5,16 +5,16 @@ import jakarta.annotation.PostConstruct;
 import lombok.Getter;
 import org.springframework.stereotype.Repository;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 
 @Getter
 @Repository
 public class InMemoryDb {
 
-    private final List<Question> javaQuestions = new ArrayList<>();
-    private final List<Question> mathQuestions = new ArrayList<>();
+    private final Set<Question> javaQuestions = new HashSet<>();
+    private final Set<Question> mathQuestions = new HashSet<>();
 
     @PostConstruct
     public void init() {

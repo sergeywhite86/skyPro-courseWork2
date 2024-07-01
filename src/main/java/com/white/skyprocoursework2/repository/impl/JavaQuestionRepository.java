@@ -42,13 +42,13 @@ public class JavaQuestionRepository implements QuestionRepository {
     }
 
     @Override
-    public List<Question> findAll() {
+    public Set<Question> findAll() {
         return inMemoryDb.getJavaQuestions();
     }
 
     @Override
     public Question getRandomQuestion() {
         Random random = new Random();
-        return findAll().get(random.nextInt(findAll().size()));
+        return findAll().stream().skip(random.nextInt(inMemoryDb.getJavaQuestions().size())).findAny().orElseThrow();
     }
 }

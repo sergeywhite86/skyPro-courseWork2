@@ -53,9 +53,9 @@ class MathQuestionServiceTest {
 
     @Test
     void getAll() {
-        when(repository.findAll()).thenReturn(MATH_QUESTIONS_LIST);
+        when(repository.findAll()).thenReturn(MATH_QUESTIONS);
         Collection<Question> actual = out.getAll();
-        assertEquals(MATH_QUESTIONS_LIST, actual);
+        assertEquals(MATH_QUESTIONS, actual);
     }
 
     @Test

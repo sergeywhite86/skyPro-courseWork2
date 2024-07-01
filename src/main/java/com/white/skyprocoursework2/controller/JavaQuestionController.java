@@ -20,6 +20,7 @@ public class JavaQuestionController {
     public Collection<Question> getQuestions() {
         return service.getAll();
     }
+
     @GetMapping("/get")
     public Question getRandomQuestions() {
         return service.getRandomQuestion();
